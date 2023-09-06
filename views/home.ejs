@@ -1,0 +1,27 @@
+
+<%- include("partials/header"); -%>
+    <h1 class="title-heading">Do you love food ? but want to keep track of what you've eaten daily? </h1>
+    <p class="title-phrase"> <%= startingContent %> </p>
+
+    <% if (posts.length === 0) { %>
+      <!-- Render "Start Writing" button when there are no posts -->
+      <a href="/compose" class="btn btn-home">Start Writing</a>
+    <% } else { %>
+      <!-- Render "Write More!" button when there are any posts -->
+      <a href="/compose" class="btn btn-home">Write More</a>
+    <% } %>
+    
+
+  <%  posts.forEach(function(post){ %>
+
+    <h1><%=post.title%></h1>
+    <p>
+    <%=post.content.substring(0, 100) + " ..."%>
+    <a href="/posts/<%=post.title%>">Read More</a>
+    </p>
+
+
+    <% }) %>
+
+
+<%- include("partials/footer"); -%>
